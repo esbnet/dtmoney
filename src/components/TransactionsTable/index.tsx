@@ -3,20 +3,22 @@ import { Container } from "./styles";
 
 import { api } from "../../services/api";
 
-interface Transaction{
+interface Transaction {
   id: number;
   title: String;
-  amount: string;
+  amount: number;
   type: string;
   category: string;
-  createAt: string
+  createAt: string;
 }
 
 export function TrasactionTables() {
-  const [transactions, setTransactions] = useState<Transaction[]> ([]);
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
 
   useEffect(() => {
-    api.get("transactions").then((response) => setTransactions(response.data.transactions));
+    api
+      .get("transactions")
+      .then((response) => setTransactions(response.data.transactions));
   }, []);
 
   return (
@@ -32,13 +34,22 @@ export function TrasactionTables() {
         </thead>
 
         <tbody>
-          {transactions.map(transaction => {
+          {transactions.map((transaction) => {
             return (
               <tr key={transaction.id}>
                 <td>{transaction.title}</td>
-                <td className={transaction.type}>{transaction.amount}</td>
+                <td className={transaction.type}>
+                  {new Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  }).format(transaction.amount)}
+                </td>
                 <td>{transaction.category}</td>
-                <td>{transaction.createAt}</td>
+                <td>
+                  {new Intl.DateTimeFormat("pt-BR", {}).format(
+                    new Date(transaction.createAt)
+                  )}
+                </td>
               </tr>
             );
           })}
