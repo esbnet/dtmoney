@@ -7505,7 +7505,7 @@ minizlib@^2.1.1:
 
 miragejs@^0.1.41:
   version "0.1.41"
-  resolved "https://registry.npmjs.org/miragejs/-/miragejs-0.1.41.tgz"
+  resolved "https://registry.yarnpkg.com/miragejs/-/miragejs-0.1.41.tgz#1b06a2d2d9de65624f5bb1cee7ebb4a208f554d0"
   integrity sha512-ur8x7sBskgey64vdzKGVCVC3hgKXWl2Cg5lZbxd6OmKrhr9LCCP/Bv7qh4wsQxIMHZnENxybFATXnrQ+rzSOWQ==
   dependencies:
     "@miragejs/pretender-node-polyfill" "^0.1.0"
