@@ -6,7 +6,7 @@ import incomeImg from "../../assets/income.svg";
 import outcomeImg from "../../assets/outcome.svg";
 import closeImg from "../../assets/close.svg";
 
-import { Container, TransactionTypeContainer, RarioBox } from "./styles";
+import { Container, TransactionTypeContainer, RadioBox } from "./styles";
 
 interface NewTransactionModalProps {
   isOpen: boolean;
@@ -18,22 +18,26 @@ export function NewTransactionModal({
   onRequestClose,
 }: NewTransactionModalProps) {
 
-  const {createTransaction} = useContext(TransactionsContext);
+  const { createTransaction } = useContext(TransactionsContext);
 
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState(0);
   const [category, setCategory] = useState("");
   const [type, setType] = useState("deposit");
 
-  function handleCreateNewTransaction(event: FormEvent) {
+  async function handleCreateNewTransaction(event: FormEvent) {
     event.preventDefault();
-
-    createTransaction({
-      title, 
+   
+    alert('chegou aqui no handleCreateNewTransaction');
+    
+    await createTransaction({
+      title,
       amount,
-      category, 
+      category,
       type,
     })
+
+    onRequestClose();
 
   }
 
@@ -67,7 +71,7 @@ export function NewTransactionModal({
         />
 
         <TransactionTypeContainer>
-          <RarioBox
+          <RadioBox
             type="button"
             className={type === "deposit" ? "active" : ""}
             onClick={() => {
@@ -78,9 +82,9 @@ export function NewTransactionModal({
           >
             <img src={incomeImg} alt="Entrada" />
             <span>Entrada</span>
-          </RarioBox>
+          </RadioBox>
 
-          <RarioBox
+          <RadioBox
             type="button"
             onClick={() => {
               setType("withdraw");
@@ -90,7 +94,7 @@ export function NewTransactionModal({
           >
             <img src={outcomeImg} alt="Saida" />
             <span>Saída</span>
-          </RarioBox>
+          </RadioBox>
         </TransactionTypeContainer>
 
         <input

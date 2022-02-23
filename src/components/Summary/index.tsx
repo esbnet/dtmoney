@@ -9,7 +9,7 @@ import { Container } from "./styles";
 export function Summary() {
   const { transactions } = useContext(TransactionsContext);
 
-  console.log(transactions);
+  // console.log(transactions);
 
   return (
     <Container>
@@ -21,6 +21,7 @@ export function Summary() {
 
         <strong>R$1000,00</strong>
       </div>
+
       <div>
         <header>
           <p>Saídas</p>
@@ -29,6 +30,7 @@ export function Summary() {
 
         <strong>R$-500,00</strong>
       </div>
+      
       <div className="higlight-background">
         <header>
           <p>Total</p>
