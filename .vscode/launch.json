@@ -7,7 +7,7 @@
     {
       "type": "pwa-chrome",
       "request": "launch",
-      "name": "Launch Chrome against localhost",
+      "name": "React JS",
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}"
     }

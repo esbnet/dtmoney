@@ -1,13 +1,16 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-
   :root {
     --background: #f0f2f5;
-    --red: #E52E4D;
+    --red: #e52e4d;
     --green: #33cc95;
-    --blue: #5429CC;
+    --blue: #5429cc;
     --blue-light: #6933ff;
+    --yellow: #fb3;
+    --yellow-light: #ff3;
+    --gray-dark: #363f5f;
+    --gray-light: #202024;
     --text-title: #363f5f;
     --text-body: #969cb3;
     --shape: #ffffff;
@@ -19,19 +22,19 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  //font-size
   html {
     @media (max-width: 1080px) {
-      font-size: 93.75%
+      font-size: 93.75%;
     }
+
     @media (max-width: 720px) {
-      font-size: 87.5%
+      font-size: 87.5%;
     }
   }
 
-  body { 
-    background: var(--background);
-    --webkit-font-smoothing: antialiased;
+  body {
+    background-color: var(--background);
+    -webkit-font-smoothing: antialiased;
   }
 
   body, input, textarea, button {
@@ -39,12 +42,18 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 400;
   }
 
-  h1, h2, h3, h4, h5, h6 strong {
+  h1, h2, h3, h4, h5, h6, strong {
     font-weight: 600;
   }
 
   button {
     cursor: pointer;
+    transparant: 0.1;
+    
+    :hover{
+      color: black;
+      background-color: var(--yellow);      
+    }
   }
 
   [disabled] {
@@ -53,40 +62,36 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .react-modal-overlay {
-    background: rgba(0, 0, 0, 0.5);
-
     position: fixed;
     top: 0;
-    bottom: 0;
-    right: 0;
     left: 0;
-
+    right: 0;
+    bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
   }
-
+  
   .react-modal-content {
+    position: relative;
+    padding: 3rem;
     width: 100%;
     max-width: 576px;
     background: var(--background);
-    padding: 3rem;
-    position: relative;
-    border-radius: 0.24rem;
+    border-radius: 0.25rem;
   }
 
   .react-modal-close {
     position: absolute;
-    right: 1.5rem;
     top: 1.5rem;
-    border: 0;
+    right: 1.5rem;
     background: transparent;
-
-    transition: filter 0.2s;
-
+    border: 0;
+    transition: filter 0.2s ease-in-out;
+    
     &:hover {
       filter: brightness(0.8);
     }
-    
   }
 `;

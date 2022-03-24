@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   margin-top: 4rem;
@@ -8,32 +8,33 @@ export const Container = styled.div`
     border-spacing: 0 0.5rem;
 
     th {
-      color: var(--text-body);
-      font-weight: 400;
       padding: 1rem 2rem;
-      text-align: left;
+      font-weight: 400;
       line-height: 1.5rem;
+      text-align: left;
+      color: var(--text-title);
+      box-shadow: 0 0.09rem 0 0.03rem rgba(0, 0, 0, 0.1);
     }
 
     td {
       padding: 1rem 2rem;
-      border: 0;
-      background: var(--shape);
       color: var(--text-body);
+      background: var(--shape);
+      border: 0;
       border-radius: 0.25rem;
+      box-shadow: 0 0.09rem 0 0.05rem rgba(0, 0, 0, 0.1);
 
       &:first-child {
-        color: var(--text-title)
+        color: var(--text-title);
       }
 
       &.deposit {
-        color: var(--green)
-      }
-      &.withdraw {
-        color: var(--red)
+        color: var(--green);
       }
 
-      
+      &.withdraw {
+        color: var(--red);
+      }
     }
   }
 `;
